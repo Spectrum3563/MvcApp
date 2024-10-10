@@ -1,0 +1,18 @@
+@model IEnumerable<dynamic>
+
+<h2>Danh sách Book với số lượng Review</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Số lượng Review</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.Price</td>
+            <td>@book.NumberReviews</td>
+        </tr>
+    }
+</table>

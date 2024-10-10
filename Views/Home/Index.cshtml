@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MyMvcApp.Model.Book>
+
+<h2>Danh sách Book</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>PublishedOn</th>
+        <th>Publisher</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.PublishedOn.ToShortDateString()</td>
+            <td>@book.Publisher</td>
+            <td>@book.Price</td>
+        </tr>
+    }
+</table>
+
+<form asp-action="Search" method="post">
+    <input type="text" name="title" placeholder="Tìm kiếm theo Title" />
+    <button type="submit">Tìm kiếm</button>
+</form>

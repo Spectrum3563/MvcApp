@@ -1,0 +1,19 @@
+@model IEnumerable<MyMvcApp.Model.Book>
+
+<h2>Danh sách Book và Review</h2>
+@foreach (var book in Model)
+{
+    <h3>@book.Title</h3>
+    <p><strong>Published On:</strong> @book.PublishedOn.ToShortDateString()</p>
+    <p><strong>Price:</strong> @book.Price</p>
+    <h4>Reviews:</h4>
+    <ul>
+        @foreach (var review in book.Reviews)
+        {
+            <li>
+                <strong>@review.VoterName</strong> - @review.NumStars stars
+                <p>@review.Comment</p>
+            </li>
+        }
+    </ul>
+}

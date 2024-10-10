@@ -1,0 +1,28 @@
+@model IEnumerable<MyMvcApp.Model.Book>
+
+<h2>Danh sách Book và Author</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Order</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>
+                @foreach (var author in book.BookAuthors.OrderBy(ba => ba.Order))
+                {
+                    <p>@author.Author.Name</p>
+                }
+            </td>
+            <td>
+                @foreach (var author in book.BookAuthors.OrderBy(ba => ba.Order))
+                {
+                    <p>@author.Order</p>
+                }
+            </td>
+        </tr>
+    }
+</table>
